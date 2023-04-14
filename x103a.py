@@ -11,10 +11,9 @@ def getData():
 
 def main():
     data = getData()
-    assert "list" in str(type(db))
-    assert "list" in str(type(db[0]))
-    assert "Placed in Service" in data[0] == True
-    assert "MAC 6c299551c1b5" in data[33] == True    
+    assert type(data) == str
+    assert ("Placed in Service" in data[0]) == True
+    assert ("MAC 6c299551c1b5" in data[33]) == True    
     assert data.find("No.,Equipment Item N") == 0
     assert data.find("Barry") == 27089
 
