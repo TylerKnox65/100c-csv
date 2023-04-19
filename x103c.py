@@ -1,5 +1,5 @@
 #!python3
-
+from x103b import getData
 """
 You will need to search through the document and find information that is being searched for by the user.
 Search for the Equipment Item Number
@@ -26,11 +26,24 @@ def findSerial(needle):
     None if no matches
     """
     filename = "data.csv"
-    
-    
-    return None
+    data = getData()
+    ls = []
+    for i in data:
+        x = i[1]
+        y = i[5]
+        if needle in x:
+            ls.append(y)
+    #print(ls)
+    length = len(ls)
+    if length == 0:
+        return None
+    else:
+        ls = ", ".join( repr(e) for e in ls )
+        ls = ls.replace("'","")
+        return ls
 
 def main():
+    findSerial("141769")
     assert findSerial("141769") == "4MLLN73"
     assert findSerial("141") == ['NXEF2AA005608103CA7600', 'BMNWN13', '4MLLN73']
     assert findSerial("134432") == None

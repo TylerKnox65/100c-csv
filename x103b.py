@@ -13,8 +13,17 @@ def getData():
     then, split each element into a list using "," as the delimiter
     you should return a list of lists
     
+
     '''
-    return None
+    db = []
+    c = open("data.csv","r")
+    data = c.read()
+    li = data.split('\n')
+    for li in li:
+        line = li.split(",")
+        db.append(line)
+    
+    return db
 
 def main():
     data = getData()
